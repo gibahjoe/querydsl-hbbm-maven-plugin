@@ -1,12 +1,58 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.devappliance</groupId>
+    <groupId>com.devappliance.qdslhbbmplugin</groupId>
     <artifactId>querydsl-hbm-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>1.0</version>
     <name>Query DSL HBM Plugin</name>
-    <url>http://maven.apache.org</url>
+    <description>Generate QDSL model files from Hibernate HBM files</description>
+    <url>https://github.com/gibahjoe/querydsl-hbbm-maven-plugin</url>
+
+    <organization>
+        <name>Devappliance</name>
+        <url>https://devappliance.com</url>
+    </organization>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/gibahjoe/querydsl-hbbm-maven-plugin/issues</url>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/gibahjoe/querydsl-hbbm-maven-plugin</url>
+        <connection>
+            scm:git:git://github.com/gibahjoe/querydsl-hbbm-maven-plugin.git
+        </connection>
+        <developerConnection>
+            scm:git:ssh://github.com/gibahjoe/querydsl-hbbm-maven-plugin.git
+        </developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>Gibah Joseph</name>
+            <email>gibahjoe@gmail.com</email>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <querydsl.version>4.2.1</querydsl.version>
@@ -93,34 +139,20 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
-    <!--<build>-->
-    <!--<plugins>-->
-    <!--<plugin>-->
-    <!--<groupId>org.apache.maven.plugins</groupId>-->
-    <!--<artifactId>maven-plugin-plugin</artifactId>-->
-    <!--<version>3.2</version>-->
-    <!--<configuration>-->
-    <!--<goalPrefix>querydslhibernateplugin</goalPrefix>-->
-    <!--<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>-->
-    <!--</configuration>-->
-    <!--<executions>-->
-    <!--<execution>-->
-    <!--<id>mojo-descriptor</id>-->
-    <!--<goals>-->
-    <!--<goal>descriptor</goal>-->
-    <!--</goals>-->
-    <!--</execution>-->
-    <!--<execution>-->
-    <!--<id>qdsl</id>-->
-    <!--<goals>-->
-    <!--<goal>q</goal>-->
-    <!--</goals>-->
-    <!--</execution>-->
-    <!--</executions>-->
-    <!--</plugin>-->
-    <!--</plugins>-->
-    <!--</build>-->
 </project>
